@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Le Bar à Croissant | Beloeil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez nos viennoiseries artisanales, préparées chaque matin avec passion et des ingrédients de qualité. Un voyage gourmand au cœur de la Rive-Sud.">
+    <meta name="author" content="matlap">
+    <meta name="keywords" content="café, croissant, chocolat, pain">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="theme-color" content="#0A0A0A">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Matlap Design">
+    <link rel="icon" type="image/png" href="./logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FDF6E3;
+            --gold: #C9A227;
+            --gold-light: #E8D5A3;
+            --brown: #3D2314;
+            --brown-light: #6B4423;
+            --warm-white: #FFFBF5;
+            --white: #FFFFFF;
+            --shadow: rgba(61, 35, 20, 0.1);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--brown);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 0.2rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 20px var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--brown);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+        }
+        .logo img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            object-position: center;
+        }
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--brown-light);
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            color: var(--gold);
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .mobile-menu span {
+            width: 24px;
+            height: 2px;
+            background: var(--brown);
+            transition: 0.3s;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--cream) 50%, var(--gold-light) 100%);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, var(--gold-light) 0%, transparent 70%);
+            opacity: 0.4;
+            animation: float 8s ease-in-out infinite;
+        }
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-text {
+            animation: fadeInUp 1s ease-out;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--warm-white);
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            border-radius: 2px;
+        }
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--brown);
+        }
+        h1 span {
+            font-style: italic;
+            color: var(--gold);
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--brown-light);
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--brown);
+            color: var(--warm-white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--brown);
+        }
+        .cta-button:hover {
+            background: transparent;
+            color: var(--brown);
+        }
+        .hero-image {
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 200px 200px 20px 20px;
+            box-shadow: 0 30px 60px var(--shadow);
+        }
+        .floating-badge {
+            position: absolute;
+            bottom: 20%;
+            left: -10%;
+            background: var(--warm-white);
+            padding: 1.5rem;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px var(--shadow);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        .floating-badge span {
+            display: block;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .floating-badge .year {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .floating-badge .text {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--brown-light);
+        }
+
+        .about {
+            padding: 6rem 2rem;
+            background: var(--warm-white);
+        }
+        .section-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--brown);
+        }
+        .about p {
+            font-size: 1.1rem;
+            color: var(--brown-light);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .founders {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .founder {
+            text-align: center;
+        }
+        .founder-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--warm-white);
+        }
+        .founder-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--brown);
+        }
+        .founder-role {
+            font-size: 0.8rem;
+            color: var(--brown-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .specialties {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+        .specialties-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .specialty-card {
+            background: var(--warm-white);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+        .specialty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+        .specialty-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .specialty-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--warm-white);
+        }
+        .specialty-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--brown);
+        }
+        .specialty-card p {
+            font-size: 0.95rem;
+            color: var(--brown-light);
+        }
+
+        .gallery {
+            padding: 6rem 2rem;
+            background: var(--brown);
+            color: var(--warm-white);
+        }
+        .gallery .section-label {
+            color: var(--gold-light);
+        }
+        .gallery h2 {
+            color: var(--warm-white);
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .gallery-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        .running-club {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--cream) 100%);
+        }
+        .running-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .running-icon-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .running-icon-wrap svg {
+            width: 120px;
+            height: 120px;
+            fill: var(--brown);
+            opacity: 0.15;
+        }
+        .running-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--brown);
+        }
+        .running-text p {
+            color: var(--brown-light);
+            margin-bottom: 1rem;
+        }
+
+        .info {
+            padding: 6rem 2rem;
+            background: var(--warm-white);
+        }
+        .info-grid {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+        .info-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        .info-icon {
+            margin-bottom: 1rem;
+        }
+        .info-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--brown);
+        }
+        .hours-table {
+            text-align: left;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+        .hours-table tr {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid var(--gold-light);
+        }
+        .hours-table .day {
+            color: var(--brown);
+        }
+        .hours-table .time {
+            color: var(--brown-light);
+        }
+        .hours-table .closed {
+            color: var(--gold);
+            font-style: italic;
+        }
+        .info-card a {
+            color: var(--brown);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .info-card a:hover {
+            color: var(--gold);
+        }
+        .info-card p {
+            color: var(--brown-light);
+            line-height: 1.8;
+        }
+        .map-section {
+            height: 400px;
+            background: linear-gradient(135deg, var(--brown-light), var(--brown));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .map-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .map-content {
+            text-align: center;
+            color: var(--warm-white);
+            z-index: 1;
+        }
+        .map-content .pin-icon svg {
+            width: 48px;
+            height: 48px;
+            fill: var(--gold);
+            animation: bounce 2s ease-in-out infinite;
+        }
+        .map-content p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+        }
+        .map-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 2rem;
+            background: var(--gold);
+            color: var(--warm-white);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+        .map-link:hover {
+            background: var(--warm-white);
+            color: var(--brown);
+        }
+
+        footer {
+            background: var(--brown);
+            color: var(--warm-white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .footer-tagline {
+            color: var(--gold-light);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background: var(--gold);
+        }
+        .social-links svg {
+            width: 2em;
+            height: 2em;
+            fill: var(--gold-light);
+        }
+        .copyright {
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(-20px, 20px) rotate(5deg);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform:translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-image {
+                order: -1;
+            }
+            .hero-image img {
+                max-width: 350px;
+            }
+            .floating-badge {
+                left: 10%;
+            }
+            .running-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-item:first-child {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+        }
+        @media (max-width: 600px) {
+            nav {
+                display: none;
+            }
+            .mobile-menu {
+                display: flex;
+            }
+            header {
+                padding: 1rem;
+            }
+            .hero {
+                padding: 5rem 1rem 3rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .hero-image img {
+                max-width: 280px;
+                border-radius: 140px 140px 15px 15px;
+            }
+            .floating-badge {
+                padding: 1rem;
+                left: 5%;
+                bottom: 10%;
+            }
+            .floating-badge .year {
+                font-size: 1.5rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item:first-child {
+                grid-column: span 1;
+            }
+            .info-grid {
+                gap: 1rem;
+            }
+            .info-card {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="./logo.png" width="100px" alt="Logo">
+        </a>
+        <nav>
+            <a href="#about">Notre histoire</a>
+            <a href="#specialties">Nos spécialités</a>
+            <a href="#info">Nous trouver</a>
+        </nav>
+        <div class="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="badge">Meilleur croissant 2024</span>
+                <h1>L'art du <span>croissant</span> à Beloeil</h1>
+                <p>Découvrez nos viennoiseries artisanales, préparées chaque matin avec passion et des ingrédients de qualité. Un voyage gourmand au cœur de la Rive-Sud.</p>
+                <a href="#info" class="cta-button">Nous visiter</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=800&fit=crop&q=80" alt="Croissants dorés fraîchement cuits">
+                <div class="floating-badge">
+                    <span class="year">2023</span>
+                    <span class="text">Fondé à<br>Beloeil</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="section-content">
+            <span class="section-label">Notre histoire</span>
+            <h2>Une passion devenue réalité</h2>
+            <p>Fondé en mars 2023 par Thibaud Georges et Alice Mielcarek, Le Bar à Croissant est rapidement devenu un incontournable sur la Rive-Sud. Notre secret ? Des viennoiseries artisanales préparées sur place avec amour, des ingrédients soigneusement sélectionnés, et une passion authentique pour le savoir-faire boulanger.</p>
+            <p>En 2024, notre engagement envers l'excellence a été récompensé par le prestigieux prix du meilleur croissant du Grand Montréal — une reconnaissance qui nous honore et nous motive à continuer de vous régaler.</p>
+            <div class="founders">
+                <div class="founder">
+                    <div class="founder-img">T</div>
+                    <p class="founder-name">Thibaud Georges</p>
+                    <p class="founder-role">Co-fondateur</p>
+                </div>
+                <div class="founder">
+                    <div class="founder-img">A</div>
+                    <p class="founder-name">Alice Mielcarek</p>
+                    <p class="founder-role">Co-fondatrice</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="specialties" id="specialties">
+        <div class="section-content">
+            <span class="section-label">Nos spécialités</span>
+            <h2>Fait maison, fait avec cœur</h2>
+        </div>
+        <div class="specialties-grid">
+            <div class="specialty-card">
+                <div class="specialty-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M256 48C176.6 48 112 112.6 112 192c0 48.3 23.8 91 60.2 117.1L192 480c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32l19.8-170.9C376.2 283 400 240.3 400 192 400 112.6 335.4 48 256 48zm0 240c-53 0-96-43-96-96s43-96 96-96 96 43 96 96-43 96-96 96z"/>
+                    </svg>
+                </div>
+                <h3>Croissants</h3>
+                <p>Notre spécialité primée : feuilletés, dorés et croustillants à souhait.</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M0 144C0 117.5 21.5 96 48 96l48 0 0-16c0-17.7 14.3-32 32-32s32 14.3 32 32l0 16 64 0 0-16c0-17.7 14.3-32 32-32s32 14.3 32 32l0 16 64 0 0-16c0-17.7 14.3-32 32-32s32 14.3 32 32l0 16 64 0 0-16c0-17.7 14.3-32 32-32s32 14.3 32 32l0 16 48 0c26.5 0 48 21.5 48 48l0 224c0 26.5-21.5 48-48 48L48 416c-26.5 0-48-21.5-48-48L0 144zm96 80l0 48 96 0 0-48-96 0zm0 96l0 48 96 0 0-48-96 0zm144-96l0 48 96 0 0-48-96 0zm0 96l0 48 96 0 0-48-96 0zm144-96l0 48 96 0 0-48-96 0zm0 96l0 48 96 0 0-48-96 0z"/>
+                    </svg>
+                </div>
+                <h3>Pains au chocolat</h3>
+                <p>Généreusement garnis de chocolat noir de qualité.</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M160 0c-17.7 0-32 14.3-32 32l0 32-32 0c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l0 160c0 17.7 14.3 32 32 32l192 0c17.7 0 32-14.3 32-32l0-160c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-32 0 0-32c0-17.7-14.3-32-32-32l-128 0zM96 128l256 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32L96 224c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32zm32 256l0-128 192 0 0 128-192 0zM224 480c-26.5 0-48-21.5-48-48l96 0c0 26.5-21.5 48-48 48z"/>
+                    </svg>
+                </div>
+                <h3>Pâtisseries</h3>
+                <p>Une sélection de douceurs artisanales qui changent au fil des saisons.</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                        <path d="M96 64c0-17.7 14.3-32 32-32l320 0 64 0c70.7 0 128 57.3 128 128s-57.3 128-128 128l-32 0c-14.7 37.1-44.2 67.5-81.6 84.1C385.1 401.6 361.5 416 336 416l-192 0c-25.5 0-49.1-14.4-62.4-43.9C44.2 355.5 14.7 325.1 0 288L0 96c0-17.7 14.3-32 32-32l64 0zm416 192c35.3 0 64-28.7 64-64s-28.7-64-64-64l-32 0 0 128 32 0zM64 128l0 160c0 53 43 96 96 96l192 0c53 0 96-43 96-96l0-160L64 128zM48 448l416 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L48 480c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/>
+                    </svg>
+                </div>
+                <h3>Café</h3>
+                <p>Fraîchement moulu, l'accompagnement parfait pour vos viennoiseries.</p>
+            </div>
+        </div>
+    </section>
+    <section class="gallery">
+        <div class="section-content">
+            <span class="section-label">Galerie</span>
+            <h2>Un aperçu de nos créations</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://gardemangerduquebec.ca/wp-content/uploads/2025/01/469141574_17949578531881683_8431759123589977249_n.jpg" alt="Assortiment de croissants">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=400&h=400&fit=crop&q=80" alt="Pain au chocolat">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop&q=80" alt="Croissant close-up">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=400&h=400&fit=crop&q=80" alt="Café et croissant">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=400&fit=crop&q=80" alt="Viennoiseries variées">
+            </div>
+        </div>
+    </section>
+    <section class="running-club">
+        <div class="running-content">
+            <div class="running-icon-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416 512"><path d="M272 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-60.6 68.3C195.5 174.1 177.4 180 160 180c-26.5 0-48 21.5-48 48l0 44 0 100c0 26.5-21.5 48-48 48s-48-21.5-48-48l0-100 0-44c0-79.5 64.5-144 144-144c28.3 0 54.6 8.2 76.9 22.3l59.5 37.8c21.1 13.4 28.2 40.6 16.7 62.7L275 330.7 341.7 399l46.5-46.5c18.7-18.7 49.2-18.7 67.9 0s18.7 49.2 0 67.9l-81 81c-14.1 14.1-34.1 19.5-53.1 14.3L204.5 480.6c-14.4-3.9-26.7-13.7-34-26.8l-27.9-50.2L93.3 454.9c-18.7 18.7-49.2 18.7-67.9 0s-18.7-49.2 0-67.9L116.7 296l39.2-78.5-44.5-28.3z"/></svg>
+            </div>
+            <div class="running-text">
+                <h3>Club de course</h3>
+                <p>Combinez plaisir et bien-être ! Chaque semaine, rejoignez notre club de course pour une séance sportive conviviale, suivie d'une pause gourmande bien méritée.</p>
+                <p>Une belle façon de faire partie de notre communauté et de rencontrer d'autres passionnés.</p>
+            </div>
+        </div>
+    </section>
+    <section class="info" id="info">
+        <div class="section-content">
+            <span class="section-label">Informations</span>
+            <h2>Venez nous voir</h2>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width: 64px; fill: #6B4423" viewBox="0 0 640 640"><path d="M352 348.4C416.1 333.9 464 276.5 464 208C464 128.5 399.5 64 320 64C240.5 64 176 128.5 176 208C176 276.5 223.9 333.9 288 348.4L288 544C288 561.7 302.3 576 320 576C337.7 576 352 561.7 352 544L352 348.4zM328 160C297.1 160 272 185.1 272 216C272 229.3 261.3 240 248 240C234.7 240 224 229.3 224 216C224 158.6 270.6 112 328 112C341.3 112 352 122.7 352 136C352 149.3 341.3 160 328 160z"/></svg>
+                </div>
+                <h3>Adresse</h3>
+                <p>794 Rue Laurier<br>Beloeil, QC J3G 4K2</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width: 64px; fill: #6B4423" viewBox="0 0 640 640"><path d="M528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320zM64 320C64 461.4 178.6 576 320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320zM296 184L296 320C296 328 300 335.5 306.7 340L402.7 404C413.7 411.4 428.6 408.4 436 397.3C443.4 386.2 440.4 371.4 429.3 364L344 307.2L344 184C344 170.7 333.3 160 320 160C306.7 160 296 170.7 296 184z"/></svg>
+                </div>
+                <h3>Horaires</h3>
+                <table class="hours-table">
+                    <tbody>
+                        <tr><td><span class="day">Lundi</span></td><td><span class="time closed">Fermé</span></td></tr>
+                        <tr><td><span class="day">Mardi</span></td><td><span class="time">7h30 - 15h00</span></td></tr>
+                        <tr><td><span class="day">Mercredi</span></td><td><span class="time">7h30 - 15h00</span></td></tr>
+                        <tr><td><span class="day">Jeudi</span></td><td><span class="time">7h30 - 15h00</span></td></tr>
+                        <tr><td><span class="day">Vendredi</span></td><td><span class="time">7h30 - 15h00</span></td></tr>
+                        <tr><td><span class="day">Samedi</span></td><td><span class="time">7h30 - 15h00</span></td></tr>
+                        <tr><td><span class="day">Dimanche</span></td><td><span class="time">7h30 - 14h00</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="width: 64px; fill: #6B4423" viewBox="0 0 640 640"><path d="M224.2 89C216.3 70.1 195.7 60.1 176.1 65.4L170.6 66.9C106 84.5 50.8 147.1 66.9 223.3C104 398.3 241.7 536 416.7 573.1C493 589.3 555.5 534 573.1 469.4L574.6 463.9C580 444.2 569.9 423.6 551.1 415.8L453.8 375.3C437.3 368.4 418.2 373.2 406.8 387.1L368.2 434.3C297.9 399.4 241.3 341 208.8 269.3L253 233.3C266.9 222 271.6 202.9 264.8 186.3L224.2 89z"/></svg>
+                </div>
+                <h3>Contact</h3>
+                <p><a href="tel:4383659520">(438) 365-9520</a></p>
+                <p><a href="mailto:contact@lebaracroissant.com">contact@lebaracroissant.com</a></p>
+            </div>
+        </div>
+    </section>
+    <section class="map-section">
+        <div class="map-content">
+            <div class="pin-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+            </div>
+            <p>794 Rue Laurier, Beloeil</p>
+            <a href="https://maps.google.com/?q=794+Rue+Laurier,+Beloeil,+QC+J3G+4K2" target="_blank" class="map-link">Voir sur Google Maps</a>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-logo">Le Bar à Croissant</div>
+        <p class="footer-tagline">L'art du croissant à Beloeil</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/p/Le-Bar-à-Croissant-100090667392727/" aria-label="Facebook">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/lebaracroissant/" aria-label="Instagram">
+                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+            </a>
+        </div>
+        <p class="copyright">© 2026 Le Bar à Croissant. Tous droits réservés. Réalisé par <a href="https://www.matlap.ca/" aria-label="Matlap Design">Matlap Design</a></p>
+    </footer>
+</body>
+</html>
