@@ -1,9 +1,37 @@
 @font-face {
-	font-family: 'Rumble Brave';
-	src: url('../fonts/RumbleBrave.otf') format('opentype');
-	font-weight: normal;
-	font-style: normal;
 	font-display: swap;
+	font-family: 'Josefin Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/josefin-sans-v34-latin-regular.woff2') format('woff2');
+}
+@font-face {
+	font-display: swap;
+	font-family: 'Josefin Sans';
+	font-style: italic;
+	font-weight: 400;
+	src: url('../fonts/josefin-sans-v34-latin-italic.woff2') format('woff2');
+}
+@font-face {
+	font-display: swap;
+	font-family: 'Josefin Sans';
+	font-style: normal;
+	font-weight: 600;
+	src: url('../fonts/josefin-sans-v34-latin-600.woff2') format('woff2');
+}
+@font-face {
+	font-display: swap;
+	font-family: 'Cormorant Garamond';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/cormorant-garamond-v21-latin-regular.woff2') format('woff2');
+}
+@font-face {
+	font-display: swap;
+    font-family: 'Rumble Brave';
+	font-style: normal;
+	font-weight: 400;
+    src: url('../fonts/RumbleBrave.woff2') format('woff2');
 }
 :root {
 	--cream: #FDEECE;
@@ -428,6 +456,7 @@ h2 {
 	grid-column: span 2;
 	grid-row: span 2;
 	aspect-ratio: auto;
+	max-height: 120.5dvh;
 }
 
 .running-club {
