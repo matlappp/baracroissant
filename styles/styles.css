@@ -6,8 +6,8 @@
 	font-display: swap;
 }
 :root {
-	--cream: #FDF6E3;
-	--gold: #C9A227;
+	--cream: #FDEECE;
+	--gold: #A8821F;
 	--gold-light: #E8D5A3;
 	--brown: #3D2314;
 	--brown-light: #6B4423;
@@ -37,7 +37,7 @@ header {
 	top: 0;
 	left: 0;
 	right: 0;
-	background: var(--white);
+	background: var(--warm-white);
 	padding: 0.3rem 2rem 0.5rem 2rem;
 	z-index: 1000;
 	box-shadow: 0 2px 20px var(--shadow);
@@ -78,9 +78,8 @@ nav.open {
 	top: 100%;
 	left: 0;
 	right: 0;
-	background: var(--white);
+	background: var(--warm-white);
 	padding: 1rem 2rem;
-	box-shadow: 0 10px 20px var(--shadow);
 	gap: 0;
 }
 nav.open a {
@@ -111,6 +110,11 @@ nav.open a:last-child {
 	height: 2px;
 	background: var(--brown);
 	transition: 0.3s;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
 }
 .hero {
 	min-height: 100vh;
@@ -635,6 +639,41 @@ h2 {
 .map-link:hover {
 	background: var(--warm-white);
 	color: var(--brown);
+}
+
+.page-404 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 6rem;
+    background: linear-gradient(135deg, var(--warm-white) 0%, var(--cream) 50%, var(--gold-light) 100%);
+}
+.container-404 {
+    max-width: 500px;
+}
+.error-code {
+    display: block;
+    font-family: var(--font-title);
+    font-size: clamp(6rem, 20vw, 10rem);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+.page-404 h1 {
+    font-family: var(--font-title);
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--brown);
+}
+.page-404 p {
+    font-size: 1rem;
+    color: var(--brown-light);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
 }
 
 footer {
