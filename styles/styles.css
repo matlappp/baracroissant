@@ -447,11 +447,12 @@ h2 {
 	align-items: center;
 	justify-content: center;
 }
-.running-icon-wrap svg {
-	width: 120px;
-	height: 120px;
-	fill: var(--brown);
-	opacity: 0.15;
+.running-icon-wrap img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow);
+    object-fit: cover;
 }
 .running-text h3 {
 	font-family: var(--font-title);
