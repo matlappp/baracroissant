@@ -34,16 +34,16 @@
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .gallery-item:first-child {
+    /*.gallery-item:first-child {
         grid-column: span 2;
         grid-row: span 1;
-    }
+    }*/
     .founder-photos {
        gap: 1rem;
     }
     .founder-photo-item {
-        width: 220px;
-        height: 220px;
+        width: 320px;
+        height: 380px;
     }
 }
 @media (max-width: 600px) {
@@ -91,6 +91,6 @@
     }
     .founder-photo-item {
         width: 100%;
-        height: 250px;
+        height: 300px;
     }
 }

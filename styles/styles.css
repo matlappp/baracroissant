@@ -35,7 +35,7 @@
 }
 :root {
 	--cream: #FDEECE;
-	--gold: #A8821F;
+	--gold: #CB862E	;
 	--gold-light: #E8D5A3;
 	--brown: #3D2314;
 	--brown-light: #6B4423;
@@ -303,33 +303,6 @@ h2 {
 	margin-top: 3rem;
 	flex-wrap: wrap;
 }
-.founder {
-	text-align: center;
-}
-.founder-img {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	background: linear-gradient(135deg, var(--gold-light), var(--gold));
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0 auto 1rem;
-	font-family: 'Cormorant Garamond', serif;
-	font-size: 2.5rem;
-	color: var(--warm-white);
-}
-.founder-name {
-	font-family: 'Cormorant Garamond', serif;
-	font-size: 1.3rem;
-	color: var(--brown);
-}
-.founder-role {
-	font-size: 0.8rem;
-	color: var(--brown-light);
-	text-transform: uppercase;
-	letter-spacing: 1px;
-}
 .founder-photos {
 	display: flex;
 	justify-content: center;
@@ -338,8 +311,8 @@ h2 {
 	flex-wrap: wrap;
 }
 .founder-photo-item {
-	width: 280px;
-	height: 280px;
+	width: 340px;
+	height: 400px;
 	border-radius: 16px;
 	overflow: hidden;
 	box-shadow: 0 10px 30px var(--shadow);
@@ -452,12 +425,12 @@ h2 {
 .gallery-item:hover img {
 	transform: scale(1.1);
 }
-.gallery-item:first-child {
+/*.gallery-item:first-child {
 	grid-column: span 2;
 	grid-row: span 2;
 	aspect-ratio: auto;
 	max-height: 120.5dvh;
-}
+}*/
 
 .running-club {
 	padding: 6rem 2rem;
