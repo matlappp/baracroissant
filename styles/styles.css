@@ -478,6 +478,9 @@ h2 {
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	gap: 1.5rem;
 }
+.press-grid a:nth-child(3) img {
+	object-position: top;
+}
 .press-card {
 	background: var(--white);
 	border-radius: 16px;
@@ -548,6 +551,10 @@ h2 {
 }
 .info-icon {
 	margin-bottom: 1rem;
+}
+.info-icon svg {
+	width: 64px;
+	fill: var(--brown-light);
 }
 .info-card h3 {
 	font-family: 'Cormorant Garamond', serif;
