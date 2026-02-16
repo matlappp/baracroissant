@@ -272,14 +272,14 @@ h1 span {
 	text-align: center;
 }
 .section-label {
-	font-size: 0.8rem;
+	font-family: var(--font-title);
+	font-size: 0.95rem;
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	color: var(--gold);
 	margin-bottom: 1rem;
 }
 h2 {
-	font-family: var(--font-title);
 	font-size: clamp(2rem, 5vw, 3rem);
 	font-weight: 400;
 	margin-bottom: 2rem;
@@ -338,59 +338,77 @@ h2 {
 }
 
 .specialties {
-	padding: 6rem 2rem;
-	background: var(--cream);
+    padding: 6rem 2rem;
+    background: var(--cream);
 }
 .reservation-note {
-	font-size: 0.95rem;
-	color: var(--brown-light);
-	font-style: italic;
-	margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--brown-light);
+    font-style: italic;
+    margin-top: 0.5rem;
 }
-.specialties-grid {
-	max-width: 1200px;
-	margin: 3rem auto 0;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-	gap: 1rem;
+
+.menu-grid {
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
 }
-.specialty-card {
-	background: var(--warm-white);
-	padding: 1.5rem 1rem;
-	border-radius: 16px;
-	text-align: center;
-	transition: all 0.4s ease;
-	box-shadow: 0 4px 15px var(--shadow);
+
+.menu-category {
+    background: var(--warm-white);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: all 0.4s ease;
 }
-.specialty-card:hover {
-	transform: translateY(-6px);
-	box-shadow: 0 15px 35px var(--shadow);
+.menu-category:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px var(--shadow);
 }
-.specialty-icon {
-	width: 52px;
-	height: 52px;
-	margin: 0 auto 0.8rem;
-	background: linear-gradient(135deg, var(--gold-light), var(--gold));
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+
+.menu-category-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--gold-light);
 }
-.specialty-icon svg {
-	width: 22px;
-	height: 22px;
-	fill: var(--warm-white);
+.menu-category-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 0.8rem;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.specialty-card h3 {
-	font-family: 'Cormorant Garamond', serif;
-	font-size: 1.15rem;
-	margin-bottom: 0.3rem;
-	color: var(--brown);
+.menu-category-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--warm-white);
 }
-.specialty-card p {
-	font-size: 0.82rem;
-	color: var(--brown-light);
-	line-height: 1.5;
+.menu-category-header h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--brown);
+}
+
+.menu-items {
+    list-style: none;
+    padding: 0;
+}
+.menu-items li {
+    font-size: 0.9rem;
+    color: var(--brown-light);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+    text-align: center;
+}
+.menu-items li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 .gallery {
@@ -457,7 +475,7 @@ h2 {
     object-fit: cover;
 }
 .running-text h3 {
-	font-family: var(--font-title);
+	/*font-family: var(--font-title);*/
 	font-size: 2rem;
 	margin-bottom: 1rem;
 	color: var(--brown);

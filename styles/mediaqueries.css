@@ -45,6 +45,9 @@
         width: 320px;
         height: 380px;
     }
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 @media (max-width: 600px) {
     header {
@@ -83,8 +86,9 @@
     .info-card {
         padding: 1.5rem 1rem;
     }
-    .specialties-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    .menu-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
     }
     .press-grid {
         grid-template-columns: 1fr;
