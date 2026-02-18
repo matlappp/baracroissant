@@ -74,9 +74,9 @@
     .floating-badge .year {
         font-size: 1.5rem;
     }
-    .gallery-grid {
+    /*.gallery-grid {
         grid-template-columns: 1fr;
-    }
+    }*/
     .gallery-item:first-child {
         grid-column: span 1;
     }
