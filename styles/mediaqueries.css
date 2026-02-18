@@ -34,6 +34,10 @@
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .gallery-item.tall {
+	    grid-row: span 1;
+        aspect-ratio: 1;
+    }
     /*.gallery-item:first-child {
         grid-column: span 2;
         grid-row: span 1;
