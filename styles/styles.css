@@ -347,7 +347,6 @@ h2 {
     font-style: italic;
     margin-top: 0.5rem;
 }
-
 .menu-grid {
     max-width: 1100px;
     margin: 3rem auto 0;
@@ -355,11 +354,10 @@ h2 {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
 }
-
 .menu-category {
     background: var(--warm-white);
     border-radius: 16px;
-    padding: 2rem 1.5rem;
+    overflow: hidden;
     box-shadow: 0 4px 15px var(--shadow);
     transition: all 0.4s ease;
 }
@@ -367,37 +365,42 @@ h2 {
     transform: translateY(-6px);
     box-shadow: 0 15px 35px var(--shadow);
 }
-
 .menu-category-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.25rem;
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    margin-bottom: 0;
+    padding-bottom: 0;
     border-bottom: 1px solid var(--gold-light);
 }
-.menu-category-icon {
-    width: 52px;
-    height: 52px;
-    margin: 0 auto 0.8rem;
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.menu-category-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
-.menu-category-icon svg {
-    width: 22px;
-    height: 22px;
-    fill: var(--warm-white);
+.menu-category-header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(40, 25, 10, 0.7), rgba(40, 25, 10, 0.1));
 }
 .menu-category-header h3 {
+    position: absolute;
+    bottom: 0.8rem;
+    left: 0;
+    right: 0;
+    text-align: center;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    color: var(--brown);
+    font-size: 1.4rem;
+    color: var(--warm-white);
+    z-index: 1;
+    margin: 0;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
-
 .menu-items {
     list-style: none;
-    padding: 0;
+    padding: 1rem 1.5rem 1.5rem;
 }
 .menu-items li {
     font-size: 0.9rem;
