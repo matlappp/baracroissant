@@ -9,3 +9,13 @@ document.querySelectorAll('nav a').forEach(function (link) {
         document.querySelector('nav').classList.remove('open');
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('popup-overlay');
+    const closeBtn = overlay.querySelector('.popup-close');
+
+    closeBtn.addEventListener('click', () => overlay.classList.add('hidden'));
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) overlay.classList.add('hidden');
+    });
+});
