@@ -11,9 +11,26 @@ document.querySelectorAll('nav a').forEach(function (link) {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('popup-overlay');
     const yearSpan = document.getElementById('year');
 
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
+    }
+
+    if (overlay) {
+        const closeBtn = overlay.querySelector('.popup-close');
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () =>
+                overlay.classList.add('hidden')
+            );
+        }
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.classList.add('hidden');
+            }
+        });
     }
 });
