@@ -415,6 +415,21 @@ h2 {
     padding-bottom: 0;
 }
 
+.events {
+	padding: 6rem 2rem;
+	background: var(--warm-white);
+}
+.events-image {
+	max-width: 1100px;
+	margin: 3rem auto 0;
+	border-radius: 16px;
+	overflow: hidden;
+}
+.events-image img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
 .gallery {
 	padding: 6rem 2rem;
 	background: var(--brown);
