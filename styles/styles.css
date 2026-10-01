@@ -418,7 +418,7 @@ h2 {
 .events {
 	padding: 6rem 2rem;
 	background: var(--warm-white);
-	display: none;
+	/*display: none;*/
 }
 .events-image {
 	max-width: 500px;
